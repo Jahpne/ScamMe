@@ -53,6 +53,9 @@
           <button id="btn-rules" class="btn tile slim"><span>Golden rules</span></button>
           <button id="btn-stats" class="btn tile slim"><span>My stats</span></button>
         </div>
+        <button id="btn-scan" class="btn tile slim"><span>Scan a screenshot</span><small>Offline, on your phone</small></button>
+<input type="file" id="scan-file" accept="image/*" hidden>
+<div id="scan-result" class="note" hidden></div>
       </div>
 
       <div class="settings">
@@ -117,6 +120,8 @@
 
   <script src="data.js"></script>
   <script src="game.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="scan.js"></script>
   <em>Made with ❤️ by Mr Robot </em>
 </body>
 </html>
