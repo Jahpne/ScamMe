@@ -18,10 +18,11 @@
     let text = '';
     try {
       const result = await Tesseract.recognize(file, 'eng', {
-        workerPath: 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/worker.min.js',
-        langPath: 'https://tessdata.projectnaptha.com/4.0.0',
-        corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@5',
-      });
+  workerPath: 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/worker.min.js',
+  corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@5.1.0',
+  langPath: 'https://tessdata.projectnaptha.com/4.0.0',
+  logger: m => console.log(m) // This prints the progress to the console so you can see it working!
+});
       text = (result.data.text || '').trim();
     } catch (e) {
       out.textContent = 'Could not read the image. Try a clearer screenshot.';
