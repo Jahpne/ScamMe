@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b12">
+  <title>Spot the Scam | Real or scam? You decide.</title>
+  <meta name="description" content="A quick game that trains you to spot fake bank alerts, phishing texts and POS tricks. Works offline.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Spot the Scam">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <header class="topbar">
+      <div class="brand-mini">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z" fill="#8b5cf6"/><path d="m8.5 12 2.6 2.6 4.6-5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Spot the Scam</span>
+      </div>
+      <span id="net-pill" class="pill online">online</span>
+    </header>
+
+    <!-- ============ HOME ============ -->
+    <section id="home" class="screen active">
+      <div class="hero">
+        <h1>Real or scam?</h1>
+        <p class="sub">Fake bank alerts, phishing texts and POS tricks cost Nigerians real money. Train your eyes in 2 minutes.</p>
+      </div>
+
+      <div class="card-lite level-card">
+        <div class="lv-row"><b id="home-level">Lv 1 Easy Target</b><span id="home-xp" class="dim">0 XP</span></div>
+        <div class="xpbar"><i id="home-xpbar"></i></div>
+      </div>
+
+      <div class="menu">
+        <button id="btn-classic" class="btn primary big">
+          <span>Play</span><small>10 messages</small>
+        </button>
+        <div class="row2">
+          <button id="btn-daily" class="btn tile">
+            <span>Daily challenge</span><small id="daily-sub">8 messages, same for everyone</small>
+          </button>
+          <button id="btn-endless" class="btn tile">
+            <span>Endless</span><small>3 lives. How far can you go?</small>
+          </button>
+        </div>
+        <div class="row2">
+          <button id="btn-rules" class="btn tile slim"><span>Golden rules</span></button>
+          <button id="btn-stats" class="btn tile slim"><span>My stats</span></button>
+        </div>
+      </div>
+
+      <div class="settings">
+        <label class="switch"><input id="opt-timer" type="checkbox"><span>20 second timer</span></label>
+        <label class="switch"><input id="opt-sound" type="checkbox"><span>Sound</span></label>
+      </div>
+
+      <button id="btn-install" class="btn ghost" hidden>Install app on your phone</button>
+      <p id="offline-ready" class="fine ok" hidden>Ready to play offline.</p>
+      <p class="fine dim">On iPhone: tap Share, then Add to Home Screen. All bank and company names here are fictional.</p>
+    </section>
+
+    <!-- ============ PLAY ============ -->
+    <section id="play" class="screen">
+      <div class="hud">
+        <button id="btn-quit" class="icon-btn" aria-label="Quit to menu">&times;</button>
+        <div class="hud-mid">
+          <b id="hud-count">1 / 10</b>
+          <span id="hud-lives" class="lives" hidden></span>
+        </div>
+        <div class="hud-score"><b id="hud-score">0</b><small>points</small></div>
+      </div>
+      <div class="hud2">
+        <span id="hud-streak" class="chip" hidden>Streak 0</span>
+        <span id="hud-mult" class="chip hot" hidden>x1.5</span>
+      </div>
+      <div id="timer" class="timer" hidden><i id="timer-bar"></i></div>
+
+      <div id="stage" class="stage" aria-live="polite"></div>
+
+      <div id="answers" class="answers">
+        <button id="btn-scam" class="btn ans scam"><span class="ic">&#10005;</span>Scam<small>press S</small></button>
+        <button id="btn-real" class="btn ans real"><span class="ic">&#10003;</span>Real<small>press R</small></button>
+      </div>
+
+      <div id="sheet" class="sheet" hidden role="status">
+        <div id="sheet-verdict" class="verdict"></div>
+        <p id="sheet-why" class="why"></p>
+        <div id="sheet-gain" class="gain"></div>
+        <button id="btn-next" class="btn primary big">Next</button>
+      </div>
+    </section>
+
+    <!-- ============ RESULT ============ -->
+    <section id="result" class="screen"></section>
+
+    <!-- ============ RULES ============ -->
+    <section id="rules" class="screen">
+      <div class="page-head"><button class="btn tiny" data-home>&lsaquo; Back</button><h2>Golden rules</h2></div>
+      <ul id="rules-list" class="rules"></ul>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section id="stats" class="screen">
+      <div class="page-head"><button class="btn tiny" data-home>&lsaquo; Back</button><h2>My stats</h2></div>
+      <div id="stats-body"></div>
+    </section>
+
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
